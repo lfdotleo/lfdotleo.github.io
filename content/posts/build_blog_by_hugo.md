@@ -1,5 +1,5 @@
 ---
-title: "Build_blog_by_hugo"
+title: "通过 Hugo 和 GitHub Pages 搭建博客"
 date: 2021-10-17T11:46:41+08:00
 draft: false
 hideToc: false
