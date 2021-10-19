@@ -1,5 +1,5 @@
 ---
-title: "通过 Hugo 和 GitHub Pages 搭建博客"
+title: "通过 Hugo 和 GitHub Pages 免费搭建博客"
 date: 2021-10-17T11:46:41+08:00
 draft: false
 hideToc: false
@@ -75,7 +75,7 @@ static 主要修改 logo 和 favicon,主要参考 <https://zzo-docs.vercel.app/z
 ```
 cd <hugo_dir>
 rm -rf public
-git submodule add -b master https://github.com/<yourname>/<yourname>.github.io.git public
+git submodule add -b main https://github.com/<yourname>/<yourname>.github.io.git public
 hugo -t <yourtheme>
 cd public
 git add .
@@ -83,7 +83,7 @@ git commit -m "first commit"
 git push origin main
 ```
 
-这些操作有点麻烦，可以采用官方提供的脚本，将下面内容保存到 `deploy.sh` 中。
+之后每次执行基本都是差不多的步骤，可以采用官方提供的脚本，将下面内容保存到 `deploy.sh` 中。
 
 ```
 #!/bin/sh
@@ -169,7 +169,7 @@ jobs:
           publish_dir: ./public
 ```
 
-如果需要自定义域名指向，在最后一行 `public_dir` 下面加上 `cname: <yourname.github.io>` 即可。
+如果需要自定义域名指向，在最后一行 `public_dir` 下面加上 `cname: <yourdomain>` 即可。
 
 #### 将 GitHub Pages 分支设置为 gh_pages
 
