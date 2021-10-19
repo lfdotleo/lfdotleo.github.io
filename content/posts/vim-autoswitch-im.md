@@ -1,5 +1,5 @@
 ---
-title: vim 自动切换中英文
+title: Vim 自动切换中英文
 date: 2021-10-16 16:40:00
 draft: false
 hideToc: false
