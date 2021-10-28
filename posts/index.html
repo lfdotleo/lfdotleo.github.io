@@ -14,9 +14,9 @@
 <link rel=stylesheet href=/css/main.min.css>
 <link rel=alternate type=application/rss+xml title=RSS href=https://dotleo.cn/posts/index.xml>
 <meta name=description content="Post page">
-<meta name=created content="2021-10-21T22:48:41+0800">
-<meta name=modified content="2021-10-21T22:48:41+0800">
-<meta property="article:published_time" content="2021-10-21T22:48:41+0800">
+<meta name=created content="2021-10-28T20:07:49+0800">
+<meta name=modified content="2021-10-28T20:07:49+0800">
+<meta property="article:published_time" content="2021-10-28T20:07:49+0800">
 <meta name=author content="Hugo Authors">
 <meta property="article:author" content="https://dotleo.cn/posts/@Hugo Authors">
 <meta property="og:site_name" content="dotleo's blog">
@@ -171,6 +171,27 @@ kimbie
 <div class=summary-classic__flex-box>
 <div class=summary-classic__content>
 <header>
+<h5 class="title h5"><a href=https://dotleo.cn/posts/io%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3/>IO 模型详解</a> </h5>
+<h6 class="subtitle caption">
+<time title="Written At" dir=ltr>📅&nbsp;Oct 28, 2021 </time>
+<span title="Reading Time" dir=ltr> &#183; ☕&nbsp;14&nbsp;min read </span>
+&#183; <span title="WRITTEN BY" dir=ltr>✍️&nbsp;dotleo</span>
+</h6>
+</header>
+<div>
+<div class="summary-classic__text p2">
+<h2 id=系统调用>系统调用</h2>
+<p>当系统运行时，第一个启动的程序就是 <code>kernel</code> ，它的作用就是各个硬件工作的调度器。为了保证硬件操作规范及 kernel 的稳定性等原因，Linux 将分为了内核空间和用户空间，普通的应用程序是运行在用户空间，无法访问内核空间中的指令等，当然也就无法直接操作硬件。当进程需要访问硬件设备（比如读取磁盘文件、接受网络数据等）时，必须由用户空间（或者叫用户态、用户模式）切换到内核空间，这是通过 <strong>系统调用</strong> 实现。strace 可以跟踪到一个进程产生的系统调用，包括参数、返回值及执行消耗时间等。</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</article>
+<article class=summary-classic data-ani=true>
+<div class=summary-classic__flex-box>
+<div class=summary-classic__content>
+<header>
 <h5 class="title h5"><a href=https://dotleo.cn/posts/tmux-cheatsheet/>[Reproduce] Tmux Cheatsheet</a> </h5>
 <h6 class="subtitle caption">
 <time title="Written At" dir=ltr>📅&nbsp;Oct 21, 2021 </time>
@@ -284,6 +305,9 @@ hugo 安装 Mac 安装 hugo 命令如下： brew install hugo 运行如下命令
 </div>
 </div>
 <li class=sidebar-recent>
+<a href=/posts/io%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3/ class="sidebar-recent__title p1">IO 模型详解</a>
+</li>
+<li class=sidebar-recent>
 <a href=/posts/tmux-cheatsheet/ class="sidebar-recent__title p1">[Reproduce] Tmux Cheatsheet</a>
 </li>
 <li class=sidebar-recent>
@@ -309,6 +333,46 @@ Tags
 <a href=/tags/hugo/ class="is-tags taxo__link" data-dir=ltr>
 <span class=taxo__text>
 hugo
+</span>
+<span class=taxo__num dir=auto>
+1
+</span>
+</a>
+</span>
+<span class=tag>
+<a href=/tags/io/ class="is-tags taxo__link" data-dir=ltr>
+<span class=taxo__text>
+IO
+</span>
+<span class=taxo__num dir=auto>
+1
+</span>
+</a>
+</span>
+<span class=tag>
+<a href=/tags/java/ class="is-tags taxo__link" data-dir=ltr>
+<span class=taxo__text>
+Java
+</span>
+<span class=taxo__num dir=auto>
+1
+</span>
+</a>
+</span>
+<span class=tag>
+<a href=/tags/linux/ class="is-tags taxo__link" data-dir=ltr>
+<span class=taxo__text>
+Linux
+</span>
+<span class=taxo__num dir=auto>
+1
+</span>
+</a>
+</span>
+<span class=tag>
+<a href=/tags/nio/ class="is-tags taxo__link" data-dir=ltr>
+<span class=taxo__text>
+NIO
 </span>
 <span class=taxo__num dir=auto>
 1
@@ -358,6 +422,16 @@ Categories
 <a href=/categories/hugo/ class="is-categories taxo__link" data-dir=ltr>
 <span class=taxo__text>
 hugo
+</span>
+<span class=taxo__num dir=auto>
+1
+</span>
+</a>
+</span>
+<span class=tag>
+<a href=/categories/java/ class="is-categories taxo__link" data-dir=ltr>
+<span class=taxo__text>
+Java
 </span>
 <span class=taxo__num dir=auto>
 1
