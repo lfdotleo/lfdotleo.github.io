@@ -112,7 +112,7 @@ public class Main {
 
 因为我们代码中需要读取一行数据，`reader.readLine()`底层的系统调用`recvfrom`是**阻塞**的，当没有内容时会一直阻塞该线程。
 
-![2020070515Fu0eKWSASZSe](//img.dotleo.cn/blog/2020070515Fu0eKWSASZSe.png)
+![2020070515Fu0eKWSASZSe](http://img.dotleo.cn/blog/2020070515Fu0eKWSASZSe.png)
 
 此时，如果我们想要再用一个客户端连接服务端，是不能得到及时响应的，因为线程被阻塞住了，大家可以动手尝试（如果代码和上面相同，则可以使用`nc localhost 6666`在本机模拟连接）。
 
@@ -173,7 +173,7 @@ while (true) {
 }
 ```
 
-![2020070516G348FLDLtlAm](//img.dotleo.cn/blog/2020070516G348FLDLtlAm.png)
+![2020070516G348FLDLtlAm](http://img.dotleo.cn/blog/2020070516G348FLDLtlAm.png)
 
 如果我们把整个 IO 过程分为等待数据阶段和内核数据到用户空间的复制两部分，和 BIO 比第二部分是没有变化的。区别在于第一部分，在等待数据时不阻塞，没有数据立即返回，有数据时才阻塞读取，因此我们只需要一个线程轮询读取数据即可。
 
@@ -192,7 +192,7 @@ NIO 解决了 BIO 的问题，但是当客户端连接多时，每次轮询需�
 
 **多路复用**其实就是由内核提供给几个命令，通过调用它们，我们可以一次性将所有需要监听的客户端文件描述符传递给内核后阻塞，由内核通过自己的方式去监控这些文件描述符，当它们有变化时及时通知我们就可以。这样，我们就解决了 NIO 多次系统调用的不足。
 
-![2020070720pLXOj0Wxds2r](//img.dotleo.cn/blog/2020070720pLXOj0Wxds2r.png)
+![2020070720pLXOj0Wxds2r](http://img.dotleo.cn/blog/2020070720pLXOj0Wxds2r.png)
 
 以 select 为例，等待数据阶段，程序将所有需要监听的 socket 组装，调用系统调用函数 select 后阻塞。当有任一可读时，函数便返回。然后再发起 recvfrom 读取数据。因此很好解决了 NIO 多次系统调用的缺点。
 
@@ -388,7 +388,7 @@ while(true) {
 
 ### 第二种理解思路
 
-![2020081321uLC0HA10d67861.png](//img.dotleo.cn/blog/2020081321uLC0HA10d67861.png)
+![2020081321uLC0HA10d67861.png](http://img.dotleo.cn/blog/2020081321uLC0HA10d67861.png)
 
 我们可以认为所有的系统 I/O 都分为两个阶段：等待就绪和操作。
 
