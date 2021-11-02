@@ -61,13 +61,13 @@ typeIcon = "🎯"
 
 # whoami
 myname = "dotleo"
-email = "liufei.leo@gmail.com"
+email = ""
 whoami = "Developer"
 bioImageUrl = ""
 useGravatar = false
 location = ""
 organization = ""
-link = "https://dotleo.cn"
+link = ""
 
 # sidebar
 enableBio = true
@@ -161,11 +161,11 @@ commento = false
   dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
 
 [socialOptions]
-  email = "mailto:liufei.leo@gmail.com"
+  email = ""
   phone = ""
   facebook = ""
   twitter = ""
-  github = ""
+  github = "https://github.com/lfdotleo"
   stack-overflow = ""
   instagram = ""
   google-plus = ""
