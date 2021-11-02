@@ -228,8 +228,8 @@ Zzo 主题支持多种评论系统，只需要配置下就可以，朋友推荐�
 
 ```
 [utterances]       # https://utteranc.es/
-  owner = "codekeeperjava"              # Your GitHub ID
-  repo = "https://codekeeperjava.github.io"               # The repo to store comments
+  owner = "lfdotleo"              # Your GitHub ID
+  repo = "https://lfdotleo.github.io"               # The repo to store comments
 ```
 
 这样配置无法显示 utterances, 需要将 repo 中的 `https://` 去掉。
