@@ -357,7 +357,7 @@ lr-x------ 1 root root 64 7 月   4 23:56 3 -&gt; /usr/lib/jvm/java-1.8.0-openjd
 </div>
 </div><p>如上代码，是一个简单的 socket 通信服务端的代码，可以使用<code>strace</code>命令自己查看系统调用情况，其中关键几步的系统调用在注释中已经给出。可以看到，一个服务端的 socket 经历<code>socket</code>- <code>bind</code> - <code>listen</code>，然后调用<code>poll</code>等待客户端连接。当有客户端连接时，<code>poll</code>结束阻塞返回结果，然后系统调用<code>accept</code>会创建新的文件描述符（上面注释中的 <em>6</em> ）用来和客户端通信。</p>
 <p>因为我们代码中需要读取一行数据，<code>reader.readLine()</code>底层的系统调用<code>recvfrom</code>是<strong>阻塞</strong>的，当没有内容时会一直阻塞该线程。</p>
-<p><img src=http://img.dotleo.cn/blog/2020070515Fu0eKWSASZSe.png alt=2020070515Fu0eKWSASZSe></p>
+<p><img src=https://cdn.jsdelivr.net/gh/lfdotleo/pic2022q1@main/110713M3DQQ58OWUea.jpg alt=110713M3DQQ58OWUea></p>
 <p>此时，如果我们想要再用一个客户端连接服务端，是不能得到及时响应的，因为线程被阻塞住了，大家可以动手尝试（如果代码和上面相同，则可以使用<code>nc localhost 6666</code>在本机模拟连接）。</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -453,7 +453,7 @@ lr-x------ 1 root root 64 7 月   4 23:56 3 -&gt; /usr/lib/jvm/java-1.8.0-openjd
 <span class=o>}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src=http://img.dotleo.cn/blog/2020070516G348FLDLtlAm.png alt=2020070516G348FLDLtlAm></p>
+</div><p><img src=https://cdn.jsdelivr.net/gh/lfdotleo/pic2022q1@main/110713xKrHzM4JYws4.jpg alt=110713xKrHzM4JYws4></p>
 <p>如果我们把整个 IO 过程分为等待数据阶段和内核数据到用户空间的复制两部分，和 BIO 比第二部分是没有变化的。区别在于第一部分，在等待数据时不阻塞，没有数据立即返回，有数据时才阻塞读取，因此我们只需要一个线程轮询读取数据即可。</p>
 <p>NIO 解决了 BIO 的两个缺点：它只用一个线程轮询即可，不需要创建过多线程导致 CPU 频繁的上下文切换；也没有线程过多带来的内存占用不可忽视的情况。那么它就完美了吗？</p>
 <p>不，从上图可以看出，NIO 的<code>recvfrom</code>虽然能立即返回，但这一次的请求仍然是通过 <strong>系统调用</strong> 的方式，假设我们有 1 万个客户端同时连接服务端，那么一次轮询就需要 1 万次系统调用，大家都知道系统调用会进行用户态和内核态的切换，也是不小的消耗。</p>
@@ -465,7 +465,7 @@ lr-x------ 1 root root 64 7 月   4 23:56 3 -&gt; /usr/lib/jvm/java-1.8.0-openjd
 <h2 id=多路复用>多路复用</h2>
 <p>NIO 解决了 BIO 的问题，但是当客户端连接多时，每次轮询需要很多次系统调用。如果想避免它，我们可以想想有什么办法让这么多次的系统调用<strong>变成 1 次系统调用</strong> ，这样的话问题不就解决了吗？</p>
 <p><strong>多路复用</strong>其实就是由内核提供给几个命令，通过调用它们，我们可以一次性将所有需要监听的客户端文件描述符传递给内核后阻塞，由内核通过自己的方式去监控这些文件描述符，当它们有变化时及时通知我们就可以。这样，我们就解决了 NIO 多次系统调用的不足。</p>
-<p><img src=http://img.dotleo.cn/blog/2020070720pLXOj0Wxds2r.png alt=2020070720pLXOj0Wxds2r></p>
+<p><img src=https://cdn.jsdelivr.net/gh/lfdotleo/pic2022q1@main/110713TjBSLMNj0vhi.jpg alt=110713TjBSLMNj0vhi></p>
 <p>以 select 为例，等待数据阶段，程序将所有需要监听的 socket 组装，调用系统调用函数 select 后阻塞。当有任一可读时，函数便返回。然后再发起 recvfrom 读取数据。因此很好解决了 NIO 多次系统调用的缺点。</p>
 <h3 id=select>select</h3>
 <p>select 函数声明如下：</p>
@@ -707,7 +707,7 @@ lr-x------ 1 root root 64 7 月   4 23:56 3 -&gt; /usr/lib/jvm/java-1.8.0-openjd
 </li>
 </ul>
 <h3 id=第二种理解思路>第二种理解思路</h3>
-<p><img src=http://img.dotleo.cn/blog/2020081321uLC0HA10d67861.png alt=2020081321uLC0HA10d67861.png></p>
+<p><img src=https://cdn.jsdelivr.net/gh/lfdotleo/pic2022q1@main/110713zr8QSSR1MsY1.jpg alt=110713zr8QSSR1MsY1></p>
 <p>我们可以认为所有的系统 I/O 都分为两个阶段：等待就绪和操作。</p>
 <ul>
 <li>BIO: 等待就绪和操作整个过程都是阻塞状态。</li>
