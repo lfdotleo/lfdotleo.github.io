@@ -14,9 +14,9 @@
 <link rel=stylesheet href=/css/main.min.css>
 <link rel=alternate type=application/rss+xml title=RSS href=https://dotleo.cn/index.xml>
 <meta name=description content="Record life">
-<meta name=created content="2021-10-28T20:07:49+0800">
-<meta name=modified content="2021-10-28T20:07:49+0800">
-<meta property="article:published_time" content="2021-10-28T20:07:49+0800">
+<meta name=created content="2021-10-28T14:01:53+0800">
+<meta name=modified content="2021-10-28T14:01:53+0800">
+<meta property="article:published_time" content="2021-10-28T14:01:53+0800">
 <meta name=author content="dotleo">
 <meta property="og:site_name" content="dotleo's blog">
 <meta property="og:title" content>
@@ -165,27 +165,6 @@ Keep on going.
 <div class=summary-classic__flex-box>
 <div class=summary-classic__content>
 <header>
-<h5 class="title h5"><a href=https://dotleo.cn/posts/io%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3/>IO 模型详解</a> </h5>
-<h6 class="subtitle caption">
-<time title="Written At" dir=ltr>📅&nbsp;Oct 28, 2021 </time>
-<span title="Reading Time" dir=ltr> &#183; ☕&nbsp;14&nbsp;min read </span>
-&#183; <span title="WRITTEN BY" dir=ltr>✍️&nbsp;dotleo</span>
-</h6>
-</header>
-<div>
-<div class="summary-classic__text p2">
-<h2 id=系统调用>系统调用</h2>
-<p>当系统运行时，第一个启动的程序就是 <code>kernel</code> ，它的作用就是各个硬件工作的调度器。为了保证硬件操作规范及 kernel 的稳定性等原因，Linux 将分为了内核空间和用户空间，普通的应用程序是运行在用户空间，无法访问内核空间中的指令等，当然也就无法直接操作硬件。当进程需要访问硬件设备（比如读取磁盘文件、接受网络数据等）时，必须由用户空间（或者叫用户态、用户模式）切换到内核空间，这是通过 <strong>系统调用</strong> 实现。strace 可以跟踪到一个进程产生的系统调用，包括参数、返回值及执行消耗时间等。</p>
-</div>
-</div>
-</div>
-</div>
-<hr>
-</article>
-<article class=summary-classic data-ani=true>
-<div class=summary-classic__flex-box>
-<div class=summary-classic__content>
-<header>
 <h5 class="title h5"><a href=https://dotleo.cn/posts/my-tools/>Favorite Mac Applications</a> </h5>
 <h6 class="subtitle caption">
 <time title="Written At" dir=ltr>📅&nbsp;Oct 28, 2021 </time>
@@ -195,7 +174,7 @@ Keep on going.
 </header>
 <div>
 <div class="summary-classic__text p2">
-Productivity Alfred 4: Quick start and workflow. Office: Microsoft Office. Dropbox | 坚果云: Auto sync tool. Xmind X & Xmind 8: I usually edit in Xmind 8, then review in Xmind X. Notion: Powerful note. Utilities Jitouch: Trackpad enhance. Rectangle: Windows manage. Mos | Scroll Reverser: Mouse and Trackpad reversal. Keka: Compress and decompress. IINA: Best video player. CopyLess 2: Clipboard history. AppCleaner: Application uninstall tool. Xnip:
+<p>I like to find all kinds of software to try them, so I found a lot of interesting software to share here, and I hope someone can share with me the software he finds powerful.</p>
 </div>
 </div>
 </div>
@@ -340,9 +319,6 @@ Developer
 <a href=/posts/ class="sidebar-recent__title p2">Posts</a>
 <ul class=sidebar-recent__ul>
 <li>
-<a href=/posts/io%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3/ class="sidebar-recent__a p2">IO 模型详解</a>
-</li>
-<li>
 <a href=/posts/my-tools/ class="sidebar-recent__a p2">Favorite Mac Applications</a>
 </li>
 <li>
@@ -353,6 +329,9 @@ Developer
 </li>
 <li>
 <a href=/posts/build_blog_by_hugo/ class="sidebar-recent__a p2">通过 Hugo 和 GitHub Pages 免费搭建博客</a>
+</li>
+<li>
+<a href=/posts/vim-autoswitch-im/ class="sidebar-recent__a p2">Vim 自动切换中英文</a>
 </li>
 </ul>
 </section>
@@ -377,49 +356,9 @@ hugo
 </a>
 </span>
 <span class=tag>
-<a href=/tags/io/ class="is-tags taxo__link" data-dir=ltr>
-<span class=taxo__text>
-IO
-</span>
-<span class=taxo__num dir=auto>
-1
-</span>
-</a>
-</span>
-<span class=tag>
-<a href=/tags/java/ class="is-tags taxo__link" data-dir=ltr>
-<span class=taxo__text>
-Java
-</span>
-<span class=taxo__num dir=auto>
-1
-</span>
-</a>
-</span>
-<span class=tag>
-<a href=/tags/linux/ class="is-tags taxo__link" data-dir=ltr>
-<span class=taxo__text>
-Linux
-</span>
-<span class=taxo__num dir=auto>
-1
-</span>
-</a>
-</span>
-<span class=tag>
 <a href=/tags/mac/ class="is-tags taxo__link" data-dir=ltr>
 <span class=taxo__text>
 mac
-</span>
-<span class=taxo__num dir=auto>
-1
-</span>
-</a>
-</span>
-<span class=tag>
-<a href=/tags/nio/ class="is-tags taxo__link" data-dir=ltr>
-<span class=taxo__text>
-NIO
 </span>
 <span class=taxo__num dir=auto>
 1
@@ -479,16 +418,6 @@ Categories
 <a href=/categories/hugo/ class="is-categories taxo__link" data-dir=ltr>
 <span class=taxo__text>
 hugo
-</span>
-<span class=taxo__num dir=auto>
-1
-</span>
-</a>
-</span>
-<span class=tag>
-<a href=/categories/java/ class="is-categories taxo__link" data-dir=ltr>
-<span class=taxo__text>
-Java
 </span>
 <span class=taxo__num dir=auto>
 1
