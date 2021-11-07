@@ -1,6 +1,6 @@
 ---
 title: "Favorite Mac Applications"
-date: 2021-10-28T14:01:53+08:00
+date: 2021-11-07T14:01:53+08:00
 draft: false
 hideToc: false
 enableToc: true
