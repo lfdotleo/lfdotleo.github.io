@@ -14,6 +14,10 @@ categories:
 
 ---
 
+I like to find all kinds of software to try them, so I found a lot of interesting software to share here, and I hope someone can share with me the software he finds powerful.
+
+<!--more-->
+
 ## Productivity
 
 - Alfred 4: Quick start and workflow.
