@@ -31,6 +31,7 @@ I like to find all kinds of software to try them, so I found a lot of interestin
 - Jitouch: Trackpad enhance.
 - Rectangle: Windows manage.
 - Mos | Scroll Reverser: Mouse and Trackpad reversal.
+- MonitorControl: control external monitor brightness & volume
 - Keka: Compress and decompress.
 - IINA: Best video player.
 - CopyLess 2: Clipboard history.
